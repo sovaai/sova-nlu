@@ -1,0 +1,32 @@
+version: '2.3'
+
+services:
+  sova-nlu:
+    restart: always
+    container_name: sova-nlu
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sova-nlu
+    volumes:
+      - .:/sova-nlu
+    ports:
+    - 8000:8000
+    # runtime: nvidia
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+    command: bash -c "uvicorn app:app --host 0.0.0.0 --port 8000"
+
+  sova-nlu-train:
+    restart: "no"
+    container_name: sova-nlu-train
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sova-nlu
+    volumes:
+      - .:/sova-nlu
+    # runtime: nvidia
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+    command: bash -c "python3 train.py"
