@@ -7,7 +7,7 @@ import config as cfg
 class IntentPipeline:
     def __init__(self):
         self.bert_model = SentenceBERTModel()
-        self.intent_classifier = IntentClassifier()
+        self.intent_classifier = IntentClassifier(output_size=len(cfg.ONE_HOT_LABELS))
 
         if torch.cuda.is_available():
             self.intent_classifier.load_state_dict(torch.load('data/intent_classifier.pt', map_location='cuda:0'))
@@ -26,7 +26,7 @@ class IntentPipeline:
     def decode(x, threshold):
         list_ = []
         result = {}
-        x = x.reshape(22)
+        x = x.reshape(len(cfg.ONE_HOT_LABELS))
         decode_labels = {v: k for k, v in cfg.ONE_HOT_LABELS.items()}
 
         for i in range(x.shape[0]):

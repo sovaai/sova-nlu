@@ -7,7 +7,7 @@ import config as cfg
 
 
 def train():
-    model = IntentClassifier()
+    model = IntentClassifier(output_size=len(cfg.ONE_HOT_LABELS))
     
     criterion = nn.MSELoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=cfg.LEARNING_RATE, momentum=cfg.MOMENTUM)
