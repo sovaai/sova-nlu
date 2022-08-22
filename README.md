@@ -63,6 +63,14 @@ sudo systemctl restart docker.service
 
 #### Build and deploy
 
+*   Checkout repository and models from Git LFS:
+    ```bash
+    git clone https://github.com/sovaai/sova-nlu
+    cd sova-nlu
+    git lfs install
+    git lfs pull
+    ```
+
 *   Build docker image
      *   If you're planning on using CPU only: build *sova-nlu* image using the following command:
      ```bash
