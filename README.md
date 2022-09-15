@@ -63,7 +63,7 @@ sudo systemctl restart docker.service
 
 #### Build and deploy
 
-*   Checkout repository and models from Git LFS:
+*   Checkout repository and models from Git LFS (you can also download pre-trained models [manually](https://disk.yandex.ru/d/Gs2jYisawiAj6w)):
     ```bash
     git clone https://github.com/sovaai/sova-nlu
     cd sova-nlu
