@@ -103,3 +103,6 @@ You can also use web interface by opening http://localhost:8000/docs.
      sudo docker-compose up -d sova-nlu-train
      ```
 The trained model will be saved to `data/intent_classifier.pt`.
+
+## Licenses
+SOVA NLU is licensed under Apache License 2.0 by Virtual Assistant, LLC.
