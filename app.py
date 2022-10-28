@@ -14,6 +14,6 @@ pipeline = IntentPipeline()
 app = FastAPI()
 
 
-@app.post("/intent")
+@app.post("/get_intent")
 async def intent_classification(item: Item):
     return pipeline(item.text, item.threshold)
